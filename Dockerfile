@@ -1,4 +1,4 @@
-ARG KEYCLOAK_IMAGE="quay.io/keycloak/keycloak:20.0.2"
+ARG KEYCLOAK_IMAGE="quay.io/keycloak/keycloak:24.0.5"
 
 # Build protocoll mapper so that it always has the current version
 FROM maven:3.8 as jdk-builder
