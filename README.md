@@ -118,4 +118,11 @@ the message 'hello world' appears in the example.message field.
 - To use keycloak with an angular app, I found this example app to be helpful: https://github.com/manfredsteyer/angular-oauth2-oidc
 - Login Page for the users: Login Url: [http://localhost:11080/auth/realms/example-realm/account](http://localhost:11080/auth/realms/example-realm/account)
 
+# wzh
 
+```bash
+
+podman-compose up --build
+
+
+```
