@@ -124,5 +124,9 @@ the message 'hello world' appears in the example.message field.
 
 podman-compose up --build
 
+podman build -t quay.io/wangzheng422/qimgs:builder -f Dockerfile.ubi9 . 
+
+
+podman run --rm -it quay.io/wangzheng422/qimgs:builder
 
 ```
