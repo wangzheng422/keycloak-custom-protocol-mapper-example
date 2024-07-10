@@ -7,7 +7,8 @@ function log {
      echo "$(date) ########## $1 "
 }
 
-KEYCLOAK_BIND_ADRESS=$(hostname -i)
+# KEYCLOAK_BIND_ADRESS=$(hostname -i)
+KEYCLOAK_BIND_ADRESS='localhost'
 REST_API_BASE_URL="http://$KEYCLOAK_BIND_ADRESS:8080"
 KEYCLOAK_READINESS_CHECK_URL="$REST_API_BASE_URL/auth/"
 log "Waiting for keycloak to start to populate test data. Wait for $KEYCLOAK_READINESS_CHECK_URL to return Status 200 ..."
