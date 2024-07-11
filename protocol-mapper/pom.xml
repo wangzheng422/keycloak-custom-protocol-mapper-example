@@ -46,10 +46,10 @@
             <artifactId>keycloak-saml-core</artifactId>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.jboss.spec.javax.ws.rs</groupId>
             <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>

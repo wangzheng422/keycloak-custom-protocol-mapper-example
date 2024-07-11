@@ -129,4 +129,9 @@ podman build -t quay.io/wangzheng422/qimgs:builder -f Dockerfile.ubi9 .
 
 podman run --rm -it quay.io/wangzheng422/qimgs:builder
 
+
+http://localhost:18080/realms/demo/protocol/openid-connect/auth?client_id=demo-client&response_type=code&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A11080%2Fapp
+
+
+
 ```

@@ -14,16 +14,16 @@
         <!-- The version we set here we got from the keycloak pom
         see https://github.com/keycloak/keycloak/blob/master/pom.xml
         -->
-        <resteasy.version>4.7.7.Final</resteasy.version>
+        <resteasy.version>6.2.7.Final</resteasy.version>
         <keycloak.version>24.0.5</keycloak.version>
-        <jackson.version>2.13.4</jackson.version>
+        <jackson.version>2.16.1</jackson.version>
         <jackson.databind.version>${jackson.version}</jackson.databind.version>
         <jboss-jaxrs-api_2.1_spec>2.0.2.Final</jboss-jaxrs-api_2.1_spec>
         <junit-jupiter.version>5.8.2</junit-jupiter.version>
-        <assertj-core.version>3.22.0</assertj-core.version>
-        <org-mockito.version>4.5.1</org-mockito.version>
-        <picocli.version>4.6.3</picocli.version>
-
+        <assertj-core.version>3.26.3</assertj-core.version>
+        <org-mockito.version>5.12.0</org-mockito.version>
+        <picocli.version>4.7.6</picocli.version>
+        <jakarta.ws.rs-api.version>3.1.0</jakarta.ws.rs-api.version>
 
         <!-- <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -49,11 +49,22 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.keycloak.bom</groupId>
+                <artifactId>keycloak-adapter-bom</artifactId>
+                <version>${keycloak.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-spring-boot-starter</artifactId>
+            </dependency>
+            <dependency>
                 <groupId>org.keycloak</groupId>
                 <artifactId>keycloak-admin-client</artifactId>
                 <version>${keycloak.version}</version>
             </dependency>
-            <dependency>
+            <!-- <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
                 <version>${resteasy.version}</version>
@@ -62,7 +73,7 @@
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jackson2-provider</artifactId>
                 <version>${resteasy.version}</version>
-            </dependency>
+            </dependency> -->
             <dependency>
                 <groupId>org.keycloak</groupId>
                 <artifactId>keycloak-core</artifactId>
@@ -88,7 +99,7 @@
                 <artifactId>keycloak-saml-core</artifactId>
                 <version>${keycloak.version}</version>
             </dependency>
-            <dependency>
+            <!-- <dependency>
                 <groupId>org.jboss.spec.javax.ws.rs</groupId>
                 <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
                 <version>${jboss-jaxrs-api_2.1_spec}</version>
@@ -97,7 +108,7 @@
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jaxrs</artifactId>
                 <version>${resteasy.version}</version>
-            </dependency>
+            </dependency> -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
@@ -128,6 +139,12 @@
                 <groupId>info.picocli</groupId>
                 <artifactId>picocli</artifactId>
                 <version>${picocli.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.ws.rs</groupId>
+                <artifactId>jakarta.ws.rs-api</artifactId>
+                <version>${jakarta.ws.rs-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

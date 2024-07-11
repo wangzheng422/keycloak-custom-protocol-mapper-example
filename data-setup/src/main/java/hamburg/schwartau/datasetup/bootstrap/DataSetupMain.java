@@ -30,12 +30,14 @@ public class DataSetupMain implements Callable<Integer> {
                 new RealmSetup(keycloakClient).execute();
                 new UserSetup(keycloakClient).execute();
                 new ClientMapperSetup(keycloakClient).execute();
+                new OIDCIdentityProviderConfigurator(keycloakClient).execute();
             });
         return 0;
     }
 
     public static void main(final String[] args) {
-        CommandLine.call(new DataSetupMain(), args);
+        // CommandLine.call(new DataSetupMain(), args);
+        new CommandLine(new DataSetupMain()).execute(args);
     }
 
     private Keycloak createKeycloakClient() {
