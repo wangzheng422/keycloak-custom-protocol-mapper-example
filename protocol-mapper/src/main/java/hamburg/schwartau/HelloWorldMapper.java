@@ -1,6 +1,7 @@
 package hamburg.schwartau;
 
 import org.keycloak.models.ClientSessionContext;
+import org.keycloak.models.GroupModel;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.ProtocolMapperModel;
 import org.keycloak.models.UserSessionModel;
@@ -12,8 +13,14 @@ import org.keycloak.protocol.oidc.mappers.UserInfoTokenMapper;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.representations.IDToken;
 
+import com.google.gson.Gson;
+
+import java.util.logging.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /*
  * Our own example protocol mapper.
@@ -82,6 +89,24 @@ public class HelloWorldMapper extends AbstractOIDCProtocolMapper implements OIDC
         //
         // Sets a static "Hello world" string, but we could write a dynamic value like a group attribute here too.
         OIDCAttributeMapperHelper.mapClaim(token, mappingModel, "hello world");
+
+
+        // this mapper will work with azure entra
+        // here we need to get groups information from azure, and print it out
+
+        // Retrieve user's groups
+        // Convert group information to a format suitable for adding to the token
+        List<String> groupNames = userSession.getUser().getGroupsStream()
+                                            .map(GroupModel::getName)
+                                            .collect(Collectors.toList());
+
+        // Convert the list of group names to a JSON string to store as a claim
+        String groupsJson = new Gson().toJson(groupNames);
+
+        Logger logger = Logger.getLogger(HelloWorldMapper.class.getName());
+        logger.info(groupsJson);
+
+        System.out.println(groupsJson);
     }
 
 }
