@@ -39,6 +39,8 @@ public class RealmSetup {
         client.setId(CLIENT);
         client.setName(CLIENT);
         client.setPublicClient(Boolean.TRUE);
+        // Set valid redirect URIs for the client
+        client.setRedirectUris(Arrays.asList("/*", "/apps"));
         return Arrays.asList(client);
     }
 
